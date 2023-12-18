@@ -15,8 +15,8 @@ class BaseModel:
             self.updated_at = datetime.now()
             storage.new(self)
         else:
-            if "id" not in kwargs.keys():
-                self.id = str(uuid.uuid4())
+            # if "id" not in kwargs.keys():
+             #   self.id = str(uuid.uuid4())
             if 'updated_at' in kwargs:
                 kwargs['updated_at'] = datetime.strptime(kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
             if 'created_at' in kwargs:
