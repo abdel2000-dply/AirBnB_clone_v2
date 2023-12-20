@@ -33,7 +33,7 @@ class HBNBCommand(cmd.Cmd):
     def preloop(self):
         """Prints if isatty is false"""
         if not sys.__stdin__.isatty():
-            print('(hbnb)')
+            print('(hbnb) ', end='')
 
     def precmd(self, line):
         """Reformat command line for advanced command syntax.
@@ -232,7 +232,7 @@ class HBNBCommand(cmd.Cmd):
                 for k in obj_dict:
                     print_list.append(str(obj_dict[k]))
 
-        print("[", end=""); print(", ".join(print_list), end=""); print("]")
+        print("[{}]".format(", ".join(print_list)))
 
     def help_all(self):
         """ Help information for the all command """
