@@ -14,7 +14,7 @@ sudo chown -R ubuntu:ubuntu /data/
 echo "<html><head></head><body>Hello World!</body></html>" | sudo tee /data/web_static/releases/test/index.html
 
 sudo rm -rf /data/web_static/current
-sudo ln -s /data/web_static/releases/test /data/web_static/current
+sudo ln -sf /data/web_static/releases/test /data/web_static/current
 
 config="/etc/nginx/sites-available/default"
 location=$(grep -Fn location $config | head -1 | cut -d":" -f1)
