@@ -1,19 +1,14 @@
 #!/usr/bin/env bash
 # Script to set up web servers for deployment of web_static
 
-trap 'exit 0' ERR
-
-if ! command -v nginx &> /dev/null; then
-    sudo apt update
-    sudo apt install nginx -y
-fi
+sudo apt update -y
+sudo apt install nginx -y
 
 sudo mkdir -p /data/web_static/{releases/test,shared}
 sudo chown -R ubuntu:ubuntu /data/
 
 echo "<html><head></head><body>Hello World!</body></html>" | sudo tee /data/web_static/releases/test/index.html
 
-sudo rm -rf /data/web_static/current
 sudo ln -sf /data/web_static/releases/test /data/web_static/current
 
 config="/etc/nginx/sites-available/default"
