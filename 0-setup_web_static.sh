@@ -4,7 +4,7 @@
 sudo apt update -y
 sudo apt install nginx -y
 
-sudo mkdir -p /data/web_static/{releases/test,shared}
+sudo mkdir -p "/data/web_static/releases/test/" "/data/web_static/shared/"
 sudo chown -R ubuntu:ubuntu /data/
 
 echo "<html><head></head><body>Hello World!</body></html>" | sudo tee /data/web_static/releases/test/index.html
