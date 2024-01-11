@@ -3,8 +3,8 @@
 
 if ! command -v nginx &> /dev/null
 then
-    sudo apt-get update
-    sudo apt-get -y install nginx
+    sudo apt update
+    sudo apt install nginx -y
     sudo service nginx start
 fi
 
