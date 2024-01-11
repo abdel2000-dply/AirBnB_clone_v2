@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # Script to set up web servers for deployment of web_static
 
-if ! command -v nginx &> /dev/null
-then
+trap 'exit 0' ERR
+
+if ! command -v nginx &> /dev/null; then
     sudo apt update
     sudo apt install nginx -y
-    sudo service nginx start
 fi
 
 sudo mkdir -p /data/web_static/{releases/test,shared}
