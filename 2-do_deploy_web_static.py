@@ -25,7 +25,6 @@ def do_deploy(archive_path):
         run(f"rm -rf {symlink}")
         run(f"ln -s {path_to}/ {symlink}")
 
-        print("New version deployed!")
         return True
     except Exception:
         return None
