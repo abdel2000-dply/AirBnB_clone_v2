@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ This module defines a class to manage - db storage """
 import models
-from models.amenity import Amenity
 from models.base_model import BaseModel, Base
+from models.amenity import Amenity
 from models.city import City
 from models.place import Place
 from models.review import Review
