@@ -1,6 +1,10 @@
 # Ignore virtual environment
 venv/
+sqlvenv/
 
 # Ignore Fabric3-related files
 __pycache__/
 *.pyc
+
+#ignore W3C-Validator
+W3C-Validator
