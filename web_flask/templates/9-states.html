@@ -1,31 +1,34 @@
 <!DOCTYPE html>
-<HTML lang="en">
-	<HEAD>
-		<TITLE>HBNB</TITLE>
-	</HEAD>
-	<BODY>
+<html lang="en">
+
+	<head>
+		<title>HBNB</title>
+	</head>
+
+	<body>
+
 		{% if not_found %}
 		<H1>Not found!</H1>
 		{% else %}
-		{% if with_id %}
-		{% for state_id, state in states.items() %}
+		{% if state %}
 		<H1>State: {{ state.name }}</H1>
-		{% endfor %}
 		<H3>Cities:</H3>
-		{% else %}
-		<H1>States</H1>
-		{% endif %}
 		<UL>
-			{% for state_id, state in states.items()|sort(attribute='1.name') %}
-			{% if with_id %}
-			{% for city in state.cities|sort(attribute='name') %}
+			{% for city in cities %}
 			<LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
 			{% endfor %}
-			{% else %}
+		</UL>
+		{% else %}
+		<H1>States</H1>
+		<UL>
+			{% for state in states %}
 			<LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
-			{% endif %}
 			{% endfor %}
 		</UL>
 		{% endif %}
-	</BODY>
-</HTML>
+		{% endif %}
+
+	</body>
+
+</html>
+
