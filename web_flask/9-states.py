@@ -6,13 +6,6 @@ from models import storage
 app = Flask(__name__)
 
 
-@app.route('/cities_by_states', strict_slashes=False)
-def cities_by_states():
-    """ def doc """
-    states = storage.all(State)
-    return render_template('8-cities_by_states.html', states=states)
-
-
 @app.route('/states', strict_slashes=False)
 @app.route('/states/<id>', strict_slashes=False)
 def states(id=None):
@@ -26,8 +19,10 @@ def states(id=None):
     else:
         states = storage.all(State)
         with_id = False
-        return render_template('9-states.html', states=states,
-                                with_id=with_id, not_found=not_found)
+        return render_template(
+            '9-states.html', states=states,
+            with_id=with_id, not_found=not_found
+        )
 
 
 @app.teardown_appcontext
